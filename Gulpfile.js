@@ -30,7 +30,7 @@ gulp.task('specs', function()
 gulp.task('lint', function()
 {
 	return gulp
-		.src(['./*.json','./assets/js/*.js'])
+		.src(['./assets/js/*.js'])
 		.pipe($.jshint())
 		.pipe($.jshint.reporter('default'));
 });
