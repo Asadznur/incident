@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="incidentTool">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+        <title>Incidents</title>
+        <script src="build/js/compiled.js" type="text/javascript"></script>
+        <link href="build/css/bundled.css" rel="stylesheet">
+	</head>
+	<body ng-controller="IncidentController">
+		<header>
+			<a href="./" ng-click="object({ id : null, form: 'create' })" class="new">Create New Entry</a>
+		</header>
+		<div class="form-wrapper">
+			<form name="incident" ng-submit="submit()" ng-show="form" novalidate>
+				<a href="javascript://" ng-click="form=false;" class="form-hide">close</a>
+				<div ng-repeat="element in elements">
+					<div ng-repeat="include in element.info.include" ng-if="form === include.type">
+						<ng-include src="'build/tpl/' + element.type + '.tpl'"></ng-include>
+					</div>
+				</div>
+				<fieldset ng-if="form">
+					<button type="submit">Submit</button>
+				</fieldset>
+			</form>
+		</div>
+		<table>
+			<thead>
+				<tr>
+					<td class="column-1">Priority</td>
+					<td class="column-2">Incident</td>
+					<td class="column-3">Owner</td>
+					<td class="column-4">Next Steps</td>
+					<td class="column-5">Created</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="d in data | orderBy: 'shortName'" ng-click="object({ id : d._id, form: 'update' })" ng-if="!d.resolvedByRestart === true">
+					<td class="column-1">{{d.priority}}</td>
+					<td class="column-2">{{d.shortName}}</td>
+					<td class="column-3">{{d.incOwner}}</td>
+					<td class="column-4">{{d.actionItems}}</td>
+					<td class="column-5">{{d.datetime}}</td>
+				</tr>
+			</tbody>
+		</table>
+		<footer>Version {{version}}</footer>
+	</body>
+</html>
