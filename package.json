@@ -1,7 +1,7 @@
 {
   "name": "incident",
   "main": "server.js",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "dependencies": {
     "body-parser": "^1.8.3",
     "compression": "^1.1.0",
