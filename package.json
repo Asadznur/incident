@@ -1,7 +1,7 @@
 {
   "name": "incident",
   "main": "server.js",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "dependencies": {
     "body-parser": "^1.8.3",
     "compression": "^1.1.0",
@@ -39,5 +39,19 @@
     "gulp-uglifycss": "^1.0.4",
     "gulp-util": "^3.0.7",
     "phantomjs": "^1.9.18"
-  }
+  },
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jmfcool/incident.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jmfcool/incident/issues"
+  },
+  "homepage": "https://github.com/jmfcool/incident#readme"
 }
